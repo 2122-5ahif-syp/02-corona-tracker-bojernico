@@ -1,4 +1,4 @@
-package at.htl.fit;
+package at.htl.fit.entity;
 
 import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
@@ -28,6 +28,18 @@ public class Person {
 
     @JsonbTransient
     private Instant timestamp;
+
+    public Person() {
+
+    }
+
+    public Person(String firstName, String lastName, String email, String telephoneNo, Instant timestamp) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.telephoneNo = telephoneNo;
+        this.timestamp = timestamp;
+    }
 
     public Long getId() {
         return id;
