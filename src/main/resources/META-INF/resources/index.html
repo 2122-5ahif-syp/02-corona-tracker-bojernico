@@ -1,26 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="./script.js" defer></script>
-</head>
 <body>
-  <div class="div">
-  <form id="msform">
-    <fieldset>
-      <h2 class="fs-title">Registration Form</h2>
-      <!-- border: 2px red solid; if wrong input -->
-      <input type="text" autocomplete="off" name="firstName" id = "firstName" placeholder="First Name">
-      <input type="text" autocomplete="off" name="lastName" id = "lastName" placeholder="Last Name">
-      <input type="email" autocomplete="off" id="email" name="email" placeholder="Email" />
-      <input type="tel" autocomplete="off" name="phone" id="phone" placeholder="Phone Number">
-      <input type="button" autocomplete="off" name="next" class="next action-button" id="action-button" value="SUBMIT" />
-    </fieldset>
-  </form>
+<div class="div">
+    <form action="/person/add" method="post">
+            <h2 class="fs-title">Registration Form</h2>
+            <!--border: 2px red solid; if wrong input -->
+            <input type="text" autocomplete="off" name="firstName" id="firstName" placeholder="First Name">
+            <input type="text" autocomplete="off" name="lastName" id="lastName" placeholder="Last Name">
+            <input type="email" autocomplete="off" id="email" name="email" placeholder="Email"/>
+            <input type="tel" autocomplete="off" name="phone" id="phone" placeholder="Phone Number">
+            <input type="submit" autocomplete="off" name="next" class="next action-button" id="action-button"
+                   value="Add User"/>
+    </form>
 </div>
 </body>
 </html>

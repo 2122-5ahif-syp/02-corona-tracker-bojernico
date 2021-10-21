@@ -23,8 +23,8 @@ public class EntityRepository<T> implements PanacheRepository<T> {
     }
 
     @Transactional
-    public T save(T entity) {
-        return this.getEntityManager().merge(entity);
+    public void save(T entity) {
+        this.persist(entity);
     }
 
     @Transactional

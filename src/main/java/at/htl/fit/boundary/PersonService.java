@@ -8,7 +8,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import java.time.Instant;
 
-@Path("api/person")
+@Path("/person")
 public class PersonService {
 
     @Inject
@@ -16,24 +16,18 @@ public class PersonService {
 
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/add")
     public Response addPerson(
             @FormParam("firstName") String firstName,
             @FormParam("lastName") String lastName,
             @FormParam("email") String email,
-            @FormParam("phone") String telephoneNo,
-            @Context UriInfo info
-            ) {
+            @FormParam("phone") String telephoneNo) throws Exception {
+        System.out.println("Thank you for using quarkus");
         var timeStamp = Instant.now();
         var person = new Person(firstName, lastName, email, telephoneNo, timeStamp);
 
-        person = this.personRepository.save(person);
+        this.personRepository.save(person);
 
-        UriBuilder builder = info
-                .getAbsolutePathBuilder()
-                .path(Long.toString(person.getId()));
-        return Response
-                .created(builder.build())
-                .build();
+        return Response.noContent().build();
     }
 }
